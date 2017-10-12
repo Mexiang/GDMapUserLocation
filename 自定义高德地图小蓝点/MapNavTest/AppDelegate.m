@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
     
-    [AMapServices sharedServices].apiKey = @"a8b0c48a87d6b37595210276a4f257e6";
+    [AMapServices sharedServices].apiKey = @"";
     
     return YES;
 }

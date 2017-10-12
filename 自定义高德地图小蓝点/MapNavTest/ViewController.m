@@ -59,7 +59,8 @@
             annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:userLocationStyleReuseIndetifier];
         }
         
-        annotationView.canShowCallout = NO;
+        annotationView.canShowCallout = NO;//点击不弹出气泡
+        annotationView.enabled = NO;//不可点击
         annotationView.image = [UIImage imageNamed:@"heardImg_passenger_default"];
         annotationView.frame = CGRectMake(0, 0, 26, 26);
         annotationView.contentMode = UIViewContentModeScaleToFill;
@@ -67,7 +68,7 @@
         
         return annotationView;
     }
-    
+    //其他大头针
     else if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
 //        static NSString *locationBackViewReuseIndetifier = @"locationBackViewReuseIndetifier";
 //        
@@ -89,8 +90,14 @@
 }
 
 - (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view {
-    
-    
+    //点击用户当前位置大头针的代理事件
+    if ([view.annotation isKindOfClass:[MAUserLocation class]]) {
+        NSLog(@"点击用户头像");
+    }
+    //其他大头针点击代理
+    else {
+        
+    }
 }
 
 
